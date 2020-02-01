@@ -12,6 +12,12 @@ namespace ggj20
         Idle
     }
 
+    public enum AgentRole
+    {
+        Fireman,
+        Builder
+    }
+
     public delegate void StateChangeDelegate(AgentState newState);
 
     public class Agent : MonoBehaviour
@@ -23,6 +29,10 @@ namespace ggj20
         [SerializeField] private Animator _animController;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
+        [SerializeField] private RuntimeAnimatorController _firemanAnimator;
+        [SerializeField] private RuntimeAnimatorController _builderAnimator;
+
+        private AgentRole _role;
         private JobBase _currentJob;
         private IJobExecutor _jobExecutor;
 
@@ -35,6 +45,26 @@ namespace ggj20
             {
                 _state = value;
                 OnStateChanged?.Invoke(_state);
+            }
+        }
+
+        public AgentRole Role
+        {
+            get => _role;
+            set
+            {
+                _role = value;
+
+                switch (_role)
+                {
+                    case AgentRole.Fireman:
+                        _animController.runtimeAnimatorController = _firemanAnimator;
+                        break;
+
+                    case AgentRole.Builder:
+                        _animController.runtimeAnimatorController = _builderAnimator;
+                        break;
+                }
             }
         }
 

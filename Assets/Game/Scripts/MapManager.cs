@@ -52,6 +52,7 @@ namespace ggj20
 
                     if(job != null)
                     {
+                        agent.Role = AgentRole.Fireman;
                         job.AssignAgent(agent);
                     }
                     else
