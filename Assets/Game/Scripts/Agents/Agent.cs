@@ -20,6 +20,8 @@ namespace ggj20
         [SerializeField] private Seeker _seeker;
         [SerializeField] private CustomAIPath _aiPath;
         [SerializeField] private AIDestinationSetter _destinationSetter;
+        [SerializeField] private Animator _animController;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
 
         private JobBase _currentJob;
         private IJobExecutor _jobExecutor;
@@ -97,6 +99,10 @@ namespace ggj20
                 _jobExecutor.JobUpdate();
             }
 
+            var velocity = _aiPath.velocity;
+            _animController.SetFloat("speed" ,velocity.magnitude);
+
+            _spriteRenderer.flipX = (velocity.x > 0);
         }
     }
 }
