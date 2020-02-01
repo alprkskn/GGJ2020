@@ -35,5 +35,10 @@ namespace Pathfinding {
 		void Update () {
 			if (target != null && ai != null) ai.destination = target.position;
 		}
+
+		public void SetDestinationOneShot(Vector3 destination)
+		{
+			if(ai != null) ai.destination = destination;
+        }
 	}
 }
