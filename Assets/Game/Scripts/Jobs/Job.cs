@@ -10,12 +10,12 @@ namespace ggj20
         Finished
     }
 
-    public delegate void JobFinishDelegate();
+    public delegate void JobFinishDelegate(JobBase job);
     public abstract class JobBase
     {
         public event JobFinishDelegate OnJobFinished;
 
-        private HashSet<Agent> _agents;
+        protected HashSet<Agent> _agents;
         protected JobState _state;
 
         public abstract IJobExecutor GetJobExecutor();
@@ -33,30 +33,13 @@ namespace ggj20
             {
                 case JobState.InProgress:
                     ProgressUpdate();
-
-                    var finishedAgents = new List<Agent>();
-
-                    foreach (var agent in _agents)
-                    {
-                        if (agent.State == AgentState.Finished)
-                        {
-                            finishedAgents.Add(agent);
-                        }
-                    }
-
-                    foreach (var agent in finishedAgents)
-                    {
-                        _agents.Remove(agent);
-                    }
-
-                    if (_agents.Count == 0)
-                    {
-                        _state = JobState.Finished;
-                        OnJobFinished?.Invoke();
-                    }
                     break;
+                    var finishedAgents = new List<Agent>();
                 case JobState.Designation:
                     DesignationUpdate();
+                    break;
+                case JobState.Finished:
+                    OnJobFinished?.Invoke(this);
                     break;
             }
         }
@@ -65,6 +48,11 @@ namespace ggj20
         {
             _agents.Add(agent);
             agent.AssignJob(this);
+        }
+
+        protected virtual void FinishJob()
+        {
+
         }
 
         protected virtual void InitializeJob()

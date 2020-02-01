@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace ggj20
         private HashSet<Agent> _agentPool;
         private Coroutine _agentSpawnRoutine;
         private HashSet<JobBase> _ongoingJobs;
+        private HashSet<JobBase> _jobDeletionQueue;
 
         public Camera MainCamera => _mainCamera;
 
@@ -26,6 +28,7 @@ namespace ggj20
         {
             _agentPool = new HashSet<Agent>();
             _ongoingJobs = new HashSet<JobBase>();
+            _jobDeletionQueue = new HashSet<JobBase>();
 
             _agentSpawnRoutine = StartCoroutine(AgentSpawner());
         }
@@ -35,6 +38,7 @@ namespace ggj20
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 var job = new AmeleJob();
+                job.OnJobFinished += OnJobFinished;
                 _ongoingJobs.Add(job);
             }
 
@@ -65,6 +69,18 @@ namespace ggj20
             {
                 job.Update();
             }
+
+            foreach(var job in _jobDeletionQueue)
+            {
+                _ongoingJobs.Remove(job);
+            }
+
+            _jobDeletionQueue.Clear();
+        }
+
+        private void OnJobFinished(JobBase job)
+        {
+            _jobDeletionQueue.Add(job);
         }
 
         private IEnumerator AgentSpawner()

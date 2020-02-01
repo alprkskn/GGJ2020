@@ -5,16 +5,14 @@ namespace ggj20
 {
     public class AmeleJob : JobBase
     {
-        private GameObject _jobTarget;
-
         public class Executor : IJobExecutor
         {
             public event Action JobFinished;
 
             private Agent _agent;
-            private Transform _target;
+            private Vector3 _target;
             private bool _reachedTarget;
-            public Executor(Transform target)
+            public Executor(Vector3 target)
             {
                 _target = target;
             }
@@ -28,7 +26,7 @@ namespace ggj20
             {
                 _agent = agent;
                 Debug.LogError("Amele job Start");
-                _agent.SetDestination(_target.position, () =>
+                _agent.SetDestination(_target, () =>
                 {
                     _reachedTarget = true;
                     Debug.Log("Geldim AMK.");
@@ -40,7 +38,11 @@ namespace ggj20
             {
             }
         }
-        
+
+        private GameObject _jobTarget;
+        private Vector3 _targetPosition;
+        private int _workersNeeded = 3;
+
         protected override void InitializeJob()
         {
             _jobTarget = GameObject.Instantiate(MapManager.Instance.TargetPrefab);
@@ -48,7 +50,30 @@ namespace ggj20
 
         public override IJobExecutor GetJobExecutor()
         {
-            return new Executor(_jobTarget.transform);
+            var executor = new Executor(_targetPosition);
+            executor.JobFinished += OnWorkerFinishedJob;
+            return executor;
+        }
+
+        private void OnWorkerFinishedJob()
+        {
+            _workersNeeded--;
+
+            if(_workersNeeded == 0)
+            {
+                FinishJob();
+            }
+        }
+
+        protected override void FinishJob()
+        {
+            GameObject.Destroy(_jobTarget);
+            foreach(var agent in _agents)
+            {
+                agent.TerminateJob();
+            }
+
+            _state = JobState.Finished;
         }
 
         protected override void DesignationUpdate()
@@ -60,6 +85,7 @@ namespace ggj20
             if(Input.GetMouseButtonDown(0))
             {
                 _state = JobState.InProgress;
+                _targetPosition = _jobTarget.transform.position;
             }
         }
     }

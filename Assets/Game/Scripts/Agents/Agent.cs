@@ -49,6 +49,11 @@ namespace ggj20
             _jobExecutor.JobFinished += OnJobFinished;
         }
 
+        public void TerminateJob()
+        {
+            OnJobFinished();
+        }
+
         public void SetDestination(Vector3 dest, Action callback)
         {
             _aiPath.enabled = true;
@@ -58,7 +63,7 @@ namespace ggj20
                 callback?.Invoke();
                 _aiPath.OnDestinationReached -= callbackWrapper;
             }
-            
+
             _aiPath.OnDestinationReached += callbackWrapper;
 
             _destinationSetter.SetDestinationOneShot(dest);
@@ -75,6 +80,8 @@ namespace ggj20
 
             _destinationSetter.SetDestinationOneShot(MapManager.Instance.SpawnPoint);
             _aiPath.OnDestinationReached += OnReturnedToBase;
+            _currentJob = null;
+            _jobExecutor = null;
         }
 
         private void OnReturnedToBase()
