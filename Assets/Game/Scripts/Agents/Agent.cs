@@ -32,10 +32,12 @@ namespace ggj20
         [SerializeField] private RuntimeAnimatorController _firemanAnimator;
         [SerializeField] private RuntimeAnimatorController _builderAnimator;
 
+        [SerializeField] private float _extinguishRate;
+        [SerializeField] private float _buildRate;
+
         private AgentRole _role;
         private JobBase _currentJob;
         private IJobExecutor _jobExecutor;
-
         private AgentState _state = AgentState.Idle;
 
         public AgentState State
@@ -70,6 +72,9 @@ namespace ggj20
 
         public Seeker Seeker => _seeker;
 
+        public float ExtinguishRate => _extinguishRate;
+        public float BuildRate => _buildRate;
+        
         public void AssignJob(JobBase job)
         {
             _currentJob = job;
@@ -99,6 +104,11 @@ namespace ggj20
             _aiPath.OnDestinationReached += callbackWrapper;
 
             _destinationSetter.SetDestinationOneShot(dest);
+        }
+
+        public void StartExtinguishing(Flammable f)
+        {
+
         }
 
         public void TerminateMovement()

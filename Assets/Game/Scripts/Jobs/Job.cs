@@ -52,7 +52,12 @@ namespace ggj20
 
         protected virtual void FinishJob()
         {
+            foreach(var agent in _agents)
+            {
+                agent.TerminateJob();
+            }
 
+            _state = JobState.Finished;
         }
 
         protected virtual void InitializeJob()

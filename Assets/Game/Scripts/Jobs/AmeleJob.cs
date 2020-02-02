@@ -67,13 +67,8 @@ namespace ggj20
 
         protected override void FinishJob()
         {
+            base.FinishJob();
             GameObject.Destroy(_jobTarget);
-            foreach(var agent in _agents)
-            {
-                agent.TerminateJob();
-            }
-
-            _state = JobState.Finished;
         }
 
         protected override void DesignationUpdate()
