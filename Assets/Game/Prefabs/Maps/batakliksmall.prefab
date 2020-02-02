@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 954099041892173415}
   - component: {fileID: 6955548073640899941}
   - component: {fileID: 7059676413526175418}
+  - component: {fileID: 114812601167025192}
   m_Layer: 8
   m_Name: batakliksmall
   m_TagString: Untagged
@@ -119,3 +120,16 @@ PolygonCollider2D:
       - {x: 0.405, y: -0.195}
       - {x: 0.445, y: -0.114999995}
       - {x: 0.465, y: -0.024999999}
+--- !u!114 &114812601167025192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750190848655199754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bcc9079871c744108c1530801ddb446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 0}

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7094326558254259216}
   - component: {fileID: 114975447460425760}
   - component: {fileID: 95066509021900932}
+  - component: {fileID: 114201601300483388}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -145,6 +146,8 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 5551651619956645485}
   _firemanAnimator: {fileID: 9100000, guid: 2e3b3dc7c9287456da047dd9658e02b4, type: 2}
   _builderAnimator: {fileID: 0}
+  _extinguishRate: 0
+  _buildRate: 0
 --- !u!114 &114975447460425760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,3 +203,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114201601300483388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551651619956645481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bcc9079871c744108c1530801ddb446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 5551651619956645485}

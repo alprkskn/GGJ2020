@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8501658024185879395}
   - component: {fileID: 2806848714134236037}
   - component: {fileID: 7695934826181235722}
+  - component: {fileID: 114952130495818132}
   m_Layer: 0
   m_Name: spriteseet_4
   m_TagString: Untagged
@@ -106,3 +107,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.72, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &114952130495818132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4296183005188689724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bcc9079871c744108c1530801ddb446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 0}
