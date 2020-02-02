@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fire
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: add3f316bda61e544859bfa686d6eebc, type: 3}
+    - {fileID: 2800000, guid: 596bb54e57dd0b94488b3606090a6a53, type: 3}
+    - {fileID: 2800000, guid: 408be03542739f947b0e0e22607dc0a1, type: 3}
+    - {fileID: 2800000, guid: 8d201d55e638ec04db36cbe81dc46628, type: 3}
+    - {fileID: 2800000, guid: 97c61544650f3ae48951b10f2e094434, type: 3}
+    - {fileID: 2800000, guid: a3f93867f0744414596e99520f55e271, type: 3}
+    - {fileID: 2800000, guid: 7625606da2381994c86c7017d5e2510e, type: 3}
+    - {fileID: 2800000, guid: 8337449a0a8da5f44a55bb2021df0400, type: 3}
+    - {fileID: 2800000, guid: 5629d56e57ec3604dbc7b9fb6d2e1842, type: 3}
+    - {fileID: 2800000, guid: cb6629d3ad98aad42af2558ff85f40e7, type: 3}
+    totalSpriteSurfaceArea: 1324960
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: cb6629d3ad98aad42af2558ff85f40e7, type: 3}
+  - {fileID: 21300000, guid: 97c61544650f3ae48951b10f2e094434, type: 3}
+  - {fileID: 21300000, guid: 408be03542739f947b0e0e22607dc0a1, type: 3}
+  - {fileID: 21300000, guid: 8d201d55e638ec04db36cbe81dc46628, type: 3}
+  - {fileID: 21300000, guid: add3f316bda61e544859bfa686d6eebc, type: 3}
+  - {fileID: 21300000, guid: a3f93867f0744414596e99520f55e271, type: 3}
+  - {fileID: 21300000, guid: 8337449a0a8da5f44a55bb2021df0400, type: 3}
+  - {fileID: 21300000, guid: 7625606da2381994c86c7017d5e2510e, type: 3}
+  - {fileID: 21300000, guid: 596bb54e57dd0b94488b3606090a6a53, type: 3}
+  - {fileID: 21300000, guid: 5629d56e57ec3604dbc7b9fb6d2e1842, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - smoke5
+  - fire5
+  - fire3
+  - fire4
+  - fire1
+  - smoke1
+  - smoke3
+  - smoke2
+  - fire2
+  - smoke4
+  m_Tag: Fire
+  m_IsVariant: 0
