@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4555020023004392224}
   - component: {fileID: 4959374535176012710}
+  - component: {fileID: 1862317914003930079}
   m_Layer: 0
   m_Name: spriteseet_11
   m_TagString: Untagged
@@ -79,6 +80,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1862317914003930079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909993079481662844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238d149e7fe364c949aaaba0ec86762f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 10
 --- !u!1 &7843042203845482424
 GameObject:
   m_ObjectHideFlags: 0
